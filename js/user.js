@@ -9,10 +9,11 @@ User.prototype.getRepos = function(username, displayFunction) {
     var repoNames = [];
     var repoDescriptions = [];
     var htmlUrl = [];
+    var dateCreated = [];
     if (response.length > 0) {
       for (var i = 0; i < response.length; i++) {
         repoNames.push(response[i].name);
-        htmlUrl.push(response[i].html_url);
+        htmlUrl.push(response[i].html_url);        dateCreated.push(moment(response[i].created_at).format('L'));
         if (response[i].description) {
           repoDescriptions.push(response[i].description);
         } else {
@@ -22,7 +23,7 @@ User.prototype.getRepos = function(username, displayFunction) {
     } else {
       repoNames.push(false);
     }
-    displayFunction(repoNames, repoDescriptions, htmlUrl);
+    displayFunction(repoNames, repoDescriptions, htmlUrl, dateCreated);
   }).fail(function(error){
     console.log(error.responseJSON.message);
   });

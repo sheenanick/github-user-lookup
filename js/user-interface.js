@@ -1,8 +1,8 @@
 var User = require('./../js/user.js').userModule;
 
-var displayRepoNames = function(repoNames) {
+var displayRepos = function(repoNames, repoDescriptions) {
   for (var i = 0; i < repoNames.length; i++) {
-    $('#repoNames').append('<li>' + repoNames[i] + '</li>');
+    $('#repos').append('<li>' + repoNames[i] + ', <em>' + repoDescriptions[i] + '</em></li>');
   }
 }
 
@@ -11,6 +11,6 @@ $(function() {
   $('form').submit(function(event) {
     event.preventDefault();
     var username = $('#username').val();
-    user.getRepos(username, displayRepoNames);
+    user.getRepos(username, displayRepos);
   });
 });

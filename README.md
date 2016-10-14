@@ -1,4 +1,4 @@
-# Github User Lookup
+# GitHub User Lookup
 
 #### _Epicodus JavaScript Week 1 Independent Project, 10.14.2016_
 
@@ -6,7 +6,7 @@
 
 ## Description
 
-This is a web application where users may enter a GitHub username into a form, submit it, and see names and descriptions of that Github user's public repositories.
+This is a web application where users may enter a GitHub username into a form, submit it, and see names and descriptions of that GitHub user's public repositories.
 
 ## Technical Specifications
 
@@ -23,7 +23,7 @@ Creating Personal Access Tokens:
 * GitHub will offer a list of options. Do not select any. These grant read/write permissions and access to personal data. Finally, select _Generate Token_.
 
 Setup Instructions:
-* Clone this repository from [github](https://github.com/sheenanick/github-user-lookup).
+* Clone this repository from [GitHub](https://github.com/sheenanick/github-user-lookup).
 * Place your token in an .env file at the top level of the directory.
 * Type 'npm install' and 'bower install' to install all necessary dependencies.
 * Run the development server by typing 'gulp serve' in your terminal.

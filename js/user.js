@@ -8,9 +8,11 @@ User.prototype.getRepos = function(username, displayFunction) {
     console.log(response);
     var repoNames = [];
     var repoDescriptions = [];
+    var htmlUrl = [];
     if (response.length > 0) {
       for (var i = 0; i < response.length; i++) {
         repoNames.push(response[i].name);
+        htmlUrl.push(response[i].html_url);
         if (response[i].description) {
           repoDescriptions.push(response[i].description);
         } else {
@@ -20,7 +22,7 @@ User.prototype.getRepos = function(username, displayFunction) {
     } else {
       repoNames.push(false);
     }
-    displayFunction(repoNames, repoDescriptions);
+    displayFunction(repoNames, repoDescriptions, htmlUrl);
   }).fail(function(error){
     console.log(error.responseJSON.message);
   });

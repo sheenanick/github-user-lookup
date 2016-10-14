@@ -1,9 +1,9 @@
 var User = require('./../js/user.js').userModule;
 
-var displayRepos = function(repoNames, repoDescriptions) {
+var displayRepos = function(repoNames, repoDescriptions, htmlUrl) {
   if(repoNames[0]) {
     for (var i = 0; i < repoNames.length; i++) {
-      $('#repos').append('<li>' + repoNames[i] + ', <em>' + repoDescriptions[i] + '</em></li>');
+      $('#repos').append('<a href="' + htmlUrl[i] + '" target="_blank"><li>' + repoNames[i] + '</a>, <em>' + repoDescriptions[i] + '</em></li>');
     }
   } else {
     alert('user not found');

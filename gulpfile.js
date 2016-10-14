@@ -16,7 +16,8 @@ var lib = require('bower-files')({
       "main": [
         "less/bootstrap.less",
         "dist/css/bootstrap.css",
-        "dist/js/bootstrap.js"
+        "dist/js/bootstrap.js",
+        "dist/fonts/glyphicons-halflings-regular.woff"
       ]
     }
   }
@@ -30,15 +31,15 @@ gulp.task('jshint', function(){
 
 gulp.task('concatInterface', function(){
   return gulp.src(['./js/*-interface.js'])
-  .pipe(concat('allConcat.js'))
-  .pipe(gulp.dest('./tmp'));
+    .pipe(concat('allConcat.js'))
+    .pipe(gulp.dest('./tmp'));
 });
 
 gulp.task('jsBrowserify', ['concatInterface'], function() {
   return browserify({entries: ['./tmp/allConcat.js'] })
-  .bundle()
-  .pipe(source('app.js'))
-  .pipe(gulp.dest('./build/js'));
+    .bundle()
+    .pipe(source('app.js'))
+    .pipe(gulp.dest('./build/js'));
 });
 
 gulp.task("minifyScripts", ["jsBrowserify"], function(){
@@ -49,9 +50,9 @@ gulp.task("minifyScripts", ["jsBrowserify"], function(){
 
 gulp.task('bowerJS', function () {
   return gulp.src(lib.ext('js').files)
-  .pipe(concat('vendor.min.js'))
-  .pipe(uglify())
-  .pipe(gulp.dest('./build/js'));
+    .pipe(concat('vendor.min.js'))
+    .pipe(uglify())
+    .pipe(gulp.dest('./build/js'));
 });
 
 gulp.task('bowerCSS', function(){
@@ -60,7 +61,12 @@ gulp.task('bowerCSS', function(){
     .pipe(gulp.dest('./build/css'));
 });
 
-gulp.task('bower', ['bowerJS', 'bowerCSS']);
+gulp.task('bowerFonts', function(){
+  return gulp.src(lib.ext('woff').files)
+    .pipe(gulp.dest('./build/fonts'));
+});
+
+gulp.task('bower', ['bowerJS', 'bowerCSS', 'bowerFonts']);
 
 gulp.task("clean", function(){
   return del(['build', 'tmp']);

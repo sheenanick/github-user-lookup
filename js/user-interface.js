@@ -1,7 +1,14 @@
 var User = require('./../js/user.js').userModule;
 
 var displayProfile = function(photo, followers, userDate, name, email) {
-  $('#profile').text(followers + photo + userDate + name + email);
+  $('#profile').append('<div class="col-sm-3"><img class="img-responsive" src="' + photo + '"></div>' +
+                       '<div class="col-sm-9">' +
+                         '<h3>' + username + '</h3>' +
+                         '<h6>Name: ' + name + '</h6>' +
+                         '<h6>Email: ' + email + '</h6>' +
+                         '<h6>Followers: ' + followers + '</h6>' +
+                         '<h6>Member since: ' + userDate + '</h6>' +
+                       '</div>');
 };
 
 var displayRepos = function(repoNames, repoDescriptions, htmlUrl, dateCreated) {
@@ -22,17 +29,28 @@ var displayRepos = function(repoNames, repoDescriptions, htmlUrl, dateCreated) {
 
 var displayError = function() {
   userFound = false;
-  alert('user not found');
+  $('#user-input').addClass('has-error has-feedback');
+  $('#glyphicon').addClass('glyphicon glyphicon-remove form-control-feedback');
+  $('#help-block').show();
+};
+
+var resetSearch = function() {
+  userFound = true;
+  $('#profile').html("");
+  $('#repos').html("");
+  $('#user-input').removeClass('has-error has-feedback');
+  $('#glyphicon').removeClass('glyphicon glyphicon-remove form-control-feedback');
+  $('#help-block').hide();
 };
 
 var username;
-var userFound = true;
+var userFound;
 
 $(function() {
   var user = new User();
   $('form').submit(function(event) {
     event.preventDefault();
-    $('#repos').html("");
+    resetSearch();
     username = $('#username').val();
     user.getProfile(username, displayProfile, displayError);
     if (userFound) {

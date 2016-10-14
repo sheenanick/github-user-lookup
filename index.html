@@ -5,19 +5,25 @@
     <link rel="stylesheet" href="/build/css/styles.css">
     <script src="build/js/vendor.min.js"></script>
     <script src="build/js/app.js"></script>
-    <title>GitHub User Lookup</title>
+    <title>GitHub User Search</title>
   </head>
   <body>
+    <div class="jumbotron">
+      <h1>GitHub User Search</h1>
+    </div>
     <div class="container">
-      <form>
-        <div class="form-group">
-          <label for="username">Search for a user:</label>
-          <input class="form-control" id="username" type="text" name="username" placeholder="GitHub username">
+      <div class="row">
+        <div class="col-sm-4 col-sm-offset-4">
+          <form>
+            <div class="form-group">
+              <label for="username">Search for a user:</label>
+              <input class="form-control" id="username" type="text" name="username" placeholder="GitHub username">
+            </div>
+            <button class="btn btn-primary form-control" type="submit">Search</button>
+          </form>
         </div>
-        <button class="btn btn-primary" type="submit">Search</button>
-      </form>
-      <ul id="repos">
-      </ul>
+      </div>
+      <div class="row" id="repos"></div>
     </div>
   </body>
 </html>

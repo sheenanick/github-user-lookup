@@ -1,15 +1,20 @@
 # Github User Lookup
 
-#### Epicodus JavaScript Week 1 Independent Project, 10.14.2016
+#### _Epicodus JavaScript Week 1 Independent Project, 10.14.2016_
 
-#### By _**Sheena Nickerson**_
+#### By Sheena Nickerson
 
 ## Description
 
-This is a web application that allows Forest Service Rangers to record wildlife sightings. There are two categories of wildlife: Animals and Endangered Animals.
+This is a web application where users may enter a GitHub username into a form, submit it, and see names and descriptions of that Github user's public repositories.
 
 ## Technical Specifications
 
+| Behavior                                                               | Example Input | Example Output                                                     |
+|------------------------------------------------------------------------|---------------|--------------------------------------------------------------------|
+| Store username from form input                                         | 'sheenanick'  | 'sheenanick'                                                       |
+| Return repository names of all public repositories of a specified user | 'sheenanick'  | 'hello world'                                                      |
+| Return descriptions of all public repositories of a specified user     | 'sheenanick'  | 'simple web page that collects hellos in many different languages' |
 
 ## Setup/Installation Requirements
 
@@ -23,7 +28,7 @@ Setup Instructions:
 * Type 'npm install' and 'bower install' to install all necessary dependencies.
 * Run the development server by typing 'gulp serve' in your terminal.
 
-## Support and contact details
+## Support and Contact Details
 
 Please feel free to contact me at sheenanick@gmail.com if you have any issues or questions, ideas or concerns.
 
@@ -35,6 +40,6 @@ Node.js
 
 ### License
 
-*Licensed under GPL.*
+Licensed under GPL.
 
 Copyright (c) 2016 **_Sheena Nickerson_**

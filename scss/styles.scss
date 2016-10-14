@@ -1,9 +1,13 @@
-h1 {
+h1, h4 {
   text-align: center;
 }
 
-.repo-col {
-  min-height: 150px;
+.col-box {
+  min-height: 200px;
+  border: 1px dotted black;
+  border-radius: 5%;
+  padding: 15px;
+  margin: 10px 0 10px 0;
 }
 
 #repos {

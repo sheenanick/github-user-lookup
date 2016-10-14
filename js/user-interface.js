@@ -10,9 +10,15 @@ var displayRepos = function(repoNames, repoDescriptions, htmlUrl, dateCreated) {
                         '</div>');
     }
   } else {
-    alert('user not found');
+    $('#repos').append('<div class="col-sm-3 repo-col">' +
+                        '<h4><em>No Public Repositories</em></h4>' +
+                      '</div>');
   }
 };
+
+var displayError = function() {
+  alert('user not found');
+}
 
 $(function() {
   var user = new User();
@@ -20,6 +26,6 @@ $(function() {
     event.preventDefault();
     $('#repos').html("");
     var username = $('#username').val();
-    user.getRepos(username, displayRepos);
+    user.getRepos(username, displayRepos, displayError);
   });
 });

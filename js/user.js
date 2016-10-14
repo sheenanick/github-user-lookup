@@ -3,15 +3,10 @@ var apiKey = require('./../.env').apiKey;
 function User() {
 }
 
-var repoNames = [];
-var repoDescriptions = [];
-var htmlUrl = [];
-var dateCreated = [];
-var possiblyNull = [];
-
 User.prototype.getProfile = function(username, displayFunction, displayError) {
   $.get('https://api.github.com/users/' + username + '?access_token=' + apiKey).then(function(response){
     console.log(response);
+    var possiblyNull = [];
     var photo = response.avatar_url;
     var followers = response.followers;
     var userDate = response.created_at;
@@ -30,6 +25,10 @@ User.prototype.getProfile = function(username, displayFunction, displayError) {
 
 User.prototype.getRepos = function(username, displayFunction) {
   $.get('https://api.github.com/users/' + username + '/repos?access_token=' + apiKey).then(function(response){
+    var repoNames = [];
+    var repoDescriptions = [];
+    var htmlUrl = [];
+    var dateCreated = [];
     console.log(response);
     if (response.length > 0) {
       for (var i = 0; i < response.length; i++) {

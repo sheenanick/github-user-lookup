@@ -1,6 +1,6 @@
 {
   "name": "github-user",
-  "description": "Github User Lookup",
+  "description": "GitHub User Lookup",
   "main": "index.js",
   "license": "ISC",
   "homepage": "",

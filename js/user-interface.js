@@ -1,20 +1,19 @@
 var User = require('./../js/user.js').userModule;
 
 var displayProfile = function(photo, followers, userDate, name, email) {
-  $('#profile').append('<div class="col-sm-3"><img class="img-responsive" src="' + photo + '"></div>' +
-                       '<div class="col-sm-9">' +
-                         '<h3>' + username + '</h3>' +
-                         '<h6>Name: ' + name + '</h6>' +
-                         '<h6>Email: ' + email + '</h6>' +
-                         '<h6>Followers: ' + followers + '</h6>' +
-                         '<h6>Member since: ' + userDate + '</h6>' +
-                       '</div>');
+  $('#profile-div').append('<div id="profile">' +
+                            '<img class="img-responsive" src="' + photo + '">' +
+                            '<h3>' + username + '</h3>' +
+                            '<h6>Name: ' + name + '</h6>' +
+                            '<h6>Email: ' + email + '</h6>' +
+                            '<h6>Followers: ' + followers + '</h6>' +
+                            '<h6>Member since: ' + userDate + '</h6></div>');
 };
 
 var displayRepos = function(repoNames, repoDescriptions, htmlUrl, dateCreated) {
   if(repoNames[0]) {
     for (var i = 0; i < repoNames.length; i++) {
-      $('#repos').append('<div class="col-sm-3 repo-col"><div class="col-box">' +
+      $('#repos').append('<div class="col-sm-4 repo-col"><div class="col-box">' +
                           '<h4><a href="' + htmlUrl[i] + '" target="_blank">' + repoNames[i] + '</a></h4>' +
                           '<p><em>' + repoDescriptions[i] + '</em></p> ' +
                           '<p>Date Created: ' + dateCreated[i] + '</p>' +
@@ -36,7 +35,7 @@ var displayError = function() {
 
 var resetSearch = function() {
   userFound = true;
-  $('#profile').html("");
+  $('#profile-div').html("");
   $('#repos').html("");
   $('#user-input').removeClass('has-error has-feedback');
   $('#glyphicon').removeClass('glyphicon glyphicon-remove form-control-feedback');

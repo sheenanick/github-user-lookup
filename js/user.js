@@ -9,7 +9,7 @@ User.prototype.getProfile = function(username, displayFunction, displayError) {
     var possiblyNull = [];
     var photo = response.avatar_url;
     var followers = response.followers;
-    var userDate = response.created_at;
+    var userDate = moment(response.created_at).format('L');
     possiblyNull.push(response.name);
     possiblyNull.push(response.email);
     for (var i = 0; i < possiblyNull.length; i++) {

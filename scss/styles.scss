@@ -7,6 +7,14 @@ input {
   margin-bottom: 5px;
 }
 
+.col-box {
+  min-height: 200px;
+  border: 1px dotted black;
+  border-radius: 5%;
+  padding: 15px;
+  margin: 10px 0 10px 0;
+}
+
 .results {
   margin: 20px 0 20px 0;
   #profile-div {

@@ -28,8 +28,7 @@ var displayRepos = function(repoNames, repoDescriptions, htmlUrl, dateCreated) {
 
 var displayError = function() {
   userFound = false;
-  $('#user-input').addClass('has-error has-feedback');
-  $('#glyphicon').addClass('glyphicon glyphicon-remove form-control-feedback');
+  $('.form-group').addClass('has-error');
   $('#help-block').show();
 };
 
@@ -37,8 +36,7 @@ var resetSearch = function() {
   userFound = true;
   $('#profile-div').html("");
   $('#repos').html("");
-  $('#user-input').removeClass('has-error has-feedback');
-  $('#glyphicon').removeClass('glyphicon glyphicon-remove form-control-feedback');
+  $('.form-group').removeClass('has-error');
   $('#help-block').hide();
 };
 

@@ -14,17 +14,12 @@
     <div class="container">
       <div class="row">
         <div class="col-sm-6 col-sm-offset-3">
-          <form>
-            <div class="form-horizontal" id="user-input">
+          <form class="form-inline">
+            <div class="form-group">
               <label for="username">Search for a user:</label>
-              <input id="username" type="text" name="username" placeholder="GitHub username" required>
-              <span id="glyphicon"></span>
-              <!-- <span class="input-group-btn"> -->
+              <input class="form-control" id="username" type="text" name="username" placeholder="GitHub username" required>
               <button class="btn btn-primary" type="submit">Search</button>
-              <!-- </span> -->
-              <div id="help-block-div">
-                <span id="help-block" class="help-block">Username not found.</span>
-              </div>
+              <span id="help-block" class="help-block">Username not found.</span>
             </div>
           </form>
         </div>

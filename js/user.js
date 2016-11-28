@@ -5,7 +5,6 @@ function User() {
 
 User.prototype.getProfile = function(username, displayFunction, displayError) {
   $.get('https://api.github.com/users/' + username + '?access_token=' + apiKey).then(function(response){
-    console.log(response);
     var possiblyNull = [];
     var photo = response.avatar_url;
     var followers = response.followers;
@@ -29,7 +28,6 @@ User.prototype.getRepos = function(username, displayFunction) {
     var repoDescriptions = [];
     var htmlUrl = [];
     var dateCreated = [];
-    console.log(response);
     if (response.length > 0) {
       for (var i = 0; i < response.length; i++) {
         repoNames.push(response[i].name);
